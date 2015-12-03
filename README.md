@@ -17,6 +17,8 @@ saved_game = SaveFileReader.read "/path/to/save/file.sav" # => SaveFile containi
 
 saved_game.trainer_name = "Reich" # Note: Most fields that accept a string are limited to 10-character strings or less
 
+saved_game.rival_name = "Bugs"
+
 saved_game.team.pokemon[0].species = 25 # Change our first team pokemon's species to someone very familiar
 
 saved_game.team.pokemon[5].happiness = 255 # That's one happy Pokemon!
@@ -28,14 +30,14 @@ minutes = 33
 seconds = 12
 frames = 20
 
-saved_game.time_played = [hours, minutes, seconds, frames]
+saved_game.time_played = [hours, minutes, seconds, frames] # The amount of frames is not visible to the player and is rather inconsequential in general.
 
 saved_game.item_pocket[3].kind = 1 # Change the 3rd item in our Item Pocket to a Master Ball. 
-saved_game.item_pocket[3].amount = 255 # Gotta make sure we have enough for our journey
+saved_game.item_pocket[3].amount = 255 # Gotta make sure we have enough for our journey.
 
-saved_game.write # This will write your changes directly to the same save file you initially opened
+saved_game.write # This will write your changes directly to the same save file you initially opened.
 
-saved_game.write "path/to/other/save/file.sav" # This will write your changes to a different location
+saved_game.write "path/to/other/save/file.sav" # This will write your changes to a different location.
 
 ```
 
