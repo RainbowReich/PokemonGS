@@ -1,5 +1,2 @@
 require "ruby_gs/version"
-
-module RubyGs
-  # Your code goes here...
-end
+require "ruby_gs/save_file_reader"

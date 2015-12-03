@@ -1,14 +1,18 @@
 require_relative "../text_gs"
 
-class NameText < BinData::Primitive
-  string :val, :length => 11, :pad_byte => 'P'
+module RubyGS
 
-  def get
-    TextGS.decode self.val
-  end
+  class NameText < BinData::Primitive
+    string :val, :length => 11, :pad_byte => 'P'
 
-  def set v
-    self.val = TextGS.encode v
+    def get
+      TextGS.decode self.val
+    end
+
+    def set v
+      self.val = TextGS.encode v
+    end
+
   end
 
 end

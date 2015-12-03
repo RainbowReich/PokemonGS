@@ -1,3 +1,3 @@
-module RubyGs
+module RubyGS
   VERSION = "0.1.0"
 end
