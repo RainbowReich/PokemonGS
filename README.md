@@ -51,4 +51,4 @@ saved_game.write "path/to/other/save/file.sav" # This will write your changes to
 + Event Flag editing (and possibly documenting the purpose of each flag).
 
 
-Special thanks to Bulbapedia for hosting the project to document G/S/C's SRAM innards.
+_Special thanks to Bulbapedia for hosting the project to document G/S/C's SRAM innards._
