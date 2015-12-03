@@ -35,7 +35,7 @@ saved_game.item_pocket[3].amount = 255 # Gotta make sure we have enough for our 
 
 saved_game.write # This will write your changes directly to the same save file you initially opened
 
-saved_game.write("path/to/other/save/file.sav" # This will write your changes to a different location
+saved_game.write "path/to/other/save/file.sav" # This will write your changes to a different location
 
 ```
 
