@@ -21,6 +21,8 @@ saved_game.rival_name = "Bugs"
 
 saved_game.team.pokemon[0].species = 25 # Change our first team pokemon's species to someone very familiar
 
+saved_game.set_team_species 0, 25 # This is an alternative to the previous line except it also updates the team menu species
+
 saved_game.team.pokemon[5].happiness = 255 # That's one happy Pokemon!
 
 saved_game.team.amount = 5 # Annnnnnd now it's gone (Not really, it's just hidden from view)
@@ -35,7 +37,7 @@ saved_game.time_played = [hours, minutes, seconds, frames] # The amount of frame
 saved_game.item_pocket[3].kind = 1 # Change the 3rd item in our Item Pocket to a Master Ball. 
 saved_game.item_pocket[3].amount = 255 # Gotta make sure we have enough for our journey.
 
-saved_game.write # This will write your changes directly to the same save file you initially opened.
+saved_game.write # This will write your changes directly to the same save file you opened initially.
 
 saved_game.write "path/to/other/save/file.sav" # This will write your changes to a different location.
 
