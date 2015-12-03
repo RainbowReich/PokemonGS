@@ -42,9 +42,8 @@ saved_game.write "path/to/other/save/file.sav" # This will write your changes to
 ```
 
 ##Useful Links
-[List of item indices](http://bulbapedia.bulbagarden.net/wiki/List_of_items_by_index_number_%28Generation_II%29)
-
-[List of Pokemon species indices](http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_%28Generation_II%29)
++ [List of item indices](http://bulbapedia.bulbagarden.net/wiki/List_of_items_by_index_number_%28Generation_II%29)
++ [List of Pokemon species indices](http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_%28Generation_II%29)
 
 ##TODO:
 + Support for Crystal.
