@@ -49,7 +49,7 @@ saved_game.write "path/to/other/save/file.sav" # This will write your changes to
 
 ##TODO:
 + Support for Crystal.
-+ Major refactoring.
++ ~~Major refactoring.~~
 + Player Location editing.
 + Event Flag editing (and possibly documenting the purpose of each flag).
 
