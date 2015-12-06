@@ -67,7 +67,7 @@ module RubyGS
     def set_team_egg slot, egg_cycles
       raise "slot index must be between 0 and 5, inclusive" if !(0..5).include? slot
       @save.team.species_list[slot].assign 0xFD
-	  @save.team.pokemon[slot].happiness = 
+	  @save.team.pokemon[slot].happiness = egg_cycles
     end
 
     def hatch_team_egg slot
