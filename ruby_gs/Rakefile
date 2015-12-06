@@ -1,2 +1,7 @@
 require "bundler/gem_tasks"
 
+desc "Open an irb session and load the current ruby_gs"
+task :console do
+	sh "irb -I lib -r ruby_gs.rb"
+end
+
