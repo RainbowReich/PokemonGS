@@ -7,7 +7,7 @@ module RubyGS
 
     def self.read(file)
       raise "filename cannot be nil" if not file
-      SaveFile.new SaveFileGS.read(File.open(file,"r")), file, true
+      SaveFile.new SaveFileGS.read(File.open(file,"r")), file, true # TODO: Detect whether save belongs to Gold/Silver or Crystal
     end
 
     def self.calc_checksums(file)
@@ -66,13 +66,14 @@ module RubyGS
 
     def set_team_egg slot, egg_cycles
       raise "slot index must be between 0 and 5, inclusive" if !(0..5).include? slot
-      @save.team.species_list[slot].assign 0xFD
+      @save.team.species_list[slot] = 0xFD
 	  @save.team.pokemon[slot].happiness = egg_cycles
     end
 
     def hatch_team_egg slot
       raise "slot index must be between 0 and 5, inclusive" if !(0..5).include? slot
-      @save.team.species_list[slot].assign @save.team.pokemon[slot].species
+      @save.team.species_list[slot].assign  @save.team.pokemon[slot].species
+	  @save.team.pokemon[slot].happiness = 20
     end
 
     def method_missing(sym, *args, &block)
@@ -86,7 +87,7 @@ module RubyGS
       end
 
       def verify_c_checksums
-
+		#TODO
       end
 
   end
