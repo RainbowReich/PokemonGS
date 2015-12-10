@@ -35,6 +35,7 @@ frames = 20
 saved_game.time_played = [hours, minutes, seconds, frames] # The amount of frames is not visible to the player and is rather inconsequential in general.
 
 saved_game.item_pocket[3].kind = 1 # Change the 3rd item in our Item Pocket to a Master Ball. 
+
 saved_game.item_pocket[3].amount = 255 # Gotta make sure we have enough for our journey.
 
 saved_game.write # This will write your changes directly to the same save file you opened initially.
