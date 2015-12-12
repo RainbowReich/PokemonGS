@@ -1,6 +1,8 @@
 require_relative "team"
 require_relative "name_text"
+require_relative "box_name"
 require_relative "item_entry"
+require_relative "pokedex_data"
 
 module RubyGS
 
@@ -32,14 +34,14 @@ module RubyGS
     array :pc_items, :type => :uint8, :initial_length => 102
     array :unused7, :type => :uint8, :initial_length => 0x240
     uint8 :current_box
-    array :unused8, :type => :uint8, :initial_length => 0x2
-    array :box_names, :type => :uint8, :initial_length => 126
-    array :unused9, :type => :uint8, :initial_length => 0xE5
+    array :unused8, :type => :uint8, :initial_length => 0x3
+    array :box_names, :type => :box_name, :initial_length => 14
+    array :unused9, :type => :uint8, :initial_length => 0xE4
     team :team
-    array :unused10, :type => :uint8, :initial_length => 0x16
-    array :dex_owned, :type => :uint8, :initial_length => 32
-    array :dex_seen, :type => :uint8, :initial_length => 32
-    array :footer, :type => :uint8, :initial_length =>  0x559F
+    array :unused10, :type => :uint8, :initial_length => 0x15
+    pokedex_data :dex_owned
+    pokedex_data :dex_seen
+	rest :rest
   end
 
 end
