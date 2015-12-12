@@ -7,6 +7,9 @@ require_relative "pokedex_data"
 
 module RubyGS
 
+  ##
+  # Represents the structure and data of a Gold/Silver Pokemon cartridge SRAM 
+  # 
   class SaveFileGS < BinData::Record
     endian :big
     array :unused, :type => :uint8, :initial_length => 0x2000

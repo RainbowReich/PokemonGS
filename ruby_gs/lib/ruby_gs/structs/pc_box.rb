@@ -3,6 +3,11 @@ require_relative "pc_pokemon"
 
 module RubyGS
 
+  ##
+  # Represents a Pokemon Box inside of the PC.
+  #
+  # It has an identical structure to the Team structure, but is much longer in length. 
+  # 
   class PCBox < BinData::Record
     endian :big
 	uint8 :unused

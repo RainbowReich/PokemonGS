@@ -4,6 +4,12 @@ require_relative "caught_data"
 
 module RubyGS
 
+  ##
+  # Represents a Pokemon within your current party.
+  #
+  # Contains 16 more bytes of data pertaining to combat stats than a PC Pokemon structure.
+  # These are recalculated upon withdrawal from the PC.
+  #
   class PartyPokemon < BinData::Record
     endian :big
     uint8 :species

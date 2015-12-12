@@ -2,7 +2,11 @@
 
 module RubyGS
 
+  ##
+  # Represents a Pokemon who has been seen or caught.
   FOUND = 1
+  ##
+  # Represents a Pokemon who has not yet been seen or caught.
   NOT_FOUND = 0
 
   class PokedexArray < BinData::Array

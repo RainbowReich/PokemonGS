@@ -4,6 +4,11 @@ require_relative "caught_data"
 
 module RubyGS
 
+  ##
+  # Represents the data describing a Pokemon stored within a PC Box.
+  # 
+  # This is a stripped down version of the PartyPokemon structure as it lacks data on current combat stats.
+  # 
   class PCPokemon < BinData::Record
 	endian :big
 	uint8 :species
@@ -26,7 +31,7 @@ module RubyGS
 	pp_data :pp_4
 	uint8 :happiness
 	uint8 :pokerus
-	caught_data :caught # Crystal only; Filled with 0x0s otherwise.
+	caught_data :caught # Crystal only; Filled with 0s otherwise.
 	uint8 :level
   end
 

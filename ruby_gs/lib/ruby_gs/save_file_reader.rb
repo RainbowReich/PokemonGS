@@ -5,12 +5,18 @@ module RubyGS
 
   class SaveFileReader
 
+
+    ##
+    # Reads a .sav file and builds a SaveFile object from its data.
     def self.read(file)
       raise "filename cannot be nil" if not file
       SaveFile.new SaveFileGS.read(File.open(file,"r")), file, true # TODO: Detect whether save belongs to Gold/Silver or Crystal
     end
 
+    ##
+	# DEPRECATED: Calculates the checksum values for both regions within a save file.
     def self.calc_checksums(file)
+      warn "[DEPRECATION] SaveFileReader::calc_checksums is deprecated. Please use SaveFileReader::correct_checksums! instead."
       file.pos = 0
       content = file.read.split("").map(&:ord)
       c1 = content[0x2009..0x2D68].reduce(&:+)
@@ -19,6 +25,8 @@ module RubyGS
       [c1.to_s(16),c2.to_s(16)]
     end
 
+	##
+	# Calculates the checksum values within a save file and writes them to the save file.
     def self.correct_checksums!(file)
       file.pos = 0
       content = file.read.split("").map(&:ord)
@@ -36,9 +44,18 @@ module RubyGS
 
   end
 
+  ##
+  # Represents a Gold/Silver/Crystal save file.
+  #
+  # @gs is set to true if the save file is from Gold/Silver and false otherwise.
+  #
+  # @filename is a string of the filename that the save file was originally read from.
+  #
+  # @save is the structure containing the save file's data and is delegated to SaveFile.
   class SaveFile
 
-    attr_accessor :save, :gs, :filename
+	attr_accessor :save
+    attr_reader  :gs, :filename
     
     def initialize save, filename, gs
       @save, @gs, @filename = save, gs, filename
@@ -53,27 +70,37 @@ module RubyGS
       end 
     end
 
+	##
+	# Writes the save structure to file.
+	#
+	# If loc is not provided, it will write directly to the original file.
     def write(loc = @filename)
       @save.write(File.open(loc, "wb"))
       verify_checksums
     end
 
+	##
+	# A convenience method for setting the species of a PartyPokemon in its structure and in the Team species_list.
     def set_team_species slot, species
       return if !(0..5).include? slot
       @save.team.pokemon[slot].species.assign species
       @save.team.species_list[slot].assign species
     end
 
+    ##
+	# A convenience method for turning a PartyPokemon into an Egg and setting the steps required to hatch it.
     def set_team_egg slot, egg_cycles
       raise "slot index must be between 0 and 5, inclusive" if !(0..5).include? slot
       @save.team.species_list[slot] = 0xFD
-	  @save.team.pokemon[slot].happiness = egg_cycles
+      @save.team.pokemon[slot].happiness = egg_cycles
     end
 
+	##
+	# A convenience method for turning an Egg into a Pokemon.
     def hatch_team_egg slot
       raise "slot index must be between 0 and 5, inclusive" if !(0..5).include? slot
       @save.team.species_list[slot].assign  @save.team.pokemon[slot].species
-	  @save.team.pokemon[slot].happiness = 20
+      @save.team.pokemon[slot].happiness = 20
     end
 
     def method_missing(sym, *args, &block)

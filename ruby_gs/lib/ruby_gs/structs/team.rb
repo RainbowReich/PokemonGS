@@ -3,6 +3,12 @@ require_relative "party_pokemon"
 
 module RubyGS
 
+  ##
+  # Represents your party of Pokemon.
+  #
+  # Note that the species, nickname, and original trainer name of each Pokemon is stored separately
+  # from their respective structures, instead being stored directly within the Team structure.
+  #
   class Team < BinData::Record
     endian :big
     uint8 :unused
